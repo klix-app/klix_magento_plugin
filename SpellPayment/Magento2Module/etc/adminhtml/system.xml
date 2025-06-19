@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <section id="payment">
+            <group id="SpellPayment_Magento2Module_init" translate="label" sortOrder="3" showInDefault="1" showInWebsite="1" showInStore="1">
+                <frontend_model>SpellPayment\Magento2Module\Block\Adminhtml\System\Config\Fieldset\Init</frontend_model>
+            </group>
+            <group id="spellpayment_checkout" translate="label comment" sortOrder="5" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Citadele E-commerce Gateway</label>
+                <fieldset_css>complex</fieldset_css>
+                <comment>Accept payments through Citadele E-commerce Gateway</comment>
+                <include path="SpellPayment_Magento2Module::system/method_checkout.xml"/>
+            </group>
+        </section>
+    </system>
+</config>

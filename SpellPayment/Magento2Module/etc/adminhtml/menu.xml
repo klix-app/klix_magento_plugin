@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+        <add
+                id="SpellPayment_Magento2Module::admin"
+                title="Citadele E-commerce Gateway"
+                module="SpellPayment_Magento2Module"
+                sortOrder="51"
+                parent="Magento_Sales::sales"
+                resource="SpellPayment_Magento2Module::paymentmethod_view"
+        />
+    </menu>
+</config>

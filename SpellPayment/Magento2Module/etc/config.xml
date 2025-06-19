@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
+    <default>
+        <payment>
+            <spellpayment_checkout>
+                <model>SpellPayment\Magento2Module\Model\Method\Checkout</model>
+                <title>Citadele E-commerce Gateway</title>
+                <payment_method_title>Citadele E-commerce Gateway</payment_method_title>
+                <active>1</active>
+                <payment_method_selection_enabled>1</payment_method_selection_enabled>
+
+                <order_status>payment_review</order_status>
+                <transaction_type>payment</transaction_type>
+                <payment_action>order</payment_action>
+
+                <allowspecific>0</allowspecific>
+                <group>spellpayment_checkout</group>
+            </spellpayment_checkout>
+        </payment>
+    </default>
+</config>
