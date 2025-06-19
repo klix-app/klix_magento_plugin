@@ -115,11 +115,24 @@ class Checkout extends \Magento\Payment\Model\Method\AbstractMethod
             '0'
         );
 
+        $dueMinutes = (int) $this->_scopeConfig->getValue(
+        'payment/spellpayment_checkout/due_minutes',
+        ScopeInterface::SCOPE_STORE
+        );
+        
+        $dueStrict = false;
+        $dueTimestamp = null;
+
+        if ($dueMinutes > 0) {
+            $dueStrict = true;
+            $dueTimestamp = time() + ($dueMinutes * 60);
+        }
+
         // ignoring Yen, Rubles, Dinars, etc - can't find API to get decimal
         // places in Magento, and it was done same way in other modules anyway
         $amountInCents = $amount * 100;
 
-        return [
+        $params = [
             'success_callback' => $this->getModuleHelper()->getReturnUrl(
                 $this->getCode(),
                 'success'
@@ -149,7 +162,8 @@ class Checkout extends \Magento\Payment\Model\Method\AbstractMethod
                         'quantity' => 1,
                     ],
                 ],
-                "notes" => $this->getProductNames($order)
+                "notes" => $this->getProductNames($order),
+                'due_strict' => $dueStrict,
             ],
             'brand_id' => $this->_scopeConfig->getValue(
                 'payment/spellpayment_checkout/shop_id',
@@ -174,6 +188,12 @@ class Checkout extends \Magento\Payment\Model\Method\AbstractMethod
                 'shipping_zip_code' => $isShippingSet ? $order->getShippingAddress()->getPostcode() : '',
             ],
         ];
+
+        if ($dueTimestamp !== null) {
+            $params['due'] = $dueTimestamp;
+        }
+
+        return $params;
     }
 
     /**

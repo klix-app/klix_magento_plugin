@@ -1,3 +1,7 @@
+### 1.3.3
+* Due minutes functionality
+
+
 ### 1.3.2 (2021-11-15)
  
 * Fixed CSRF exclusion potentially conflicting with callback request processing 

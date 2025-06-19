@@ -57,6 +57,17 @@
                 <field id="active">1</field>
             </depends>
         </field>
+        <field id="due_minutes" translate="label" type="text" sortOrder="32" showInDefault="1" showInWebsite="1" showInStore="0">
+            <label>Due time in minutes</label>
+            <comment>Please enter how many minutes the purchase will be active. Type 0 if no limitation.</comment>
+            <config_path>payment/spellpayment_checkout/due_minutes</config_path>
+            <validate>validate-zero-or-greater validate-digits required-entry</validate>
+            <can_be_empty>0</can_be_empty>
+            <depends>
+                <field id="active">1</field>
+            </depends>
+            <frontend_class>validate-zero-or-greater validate-digits</frontend_class>
+        </field>
         <field id="enable_logging" translate="label" sortOrder="110" type="select" showInDefault="1" showInWebsite="1" showInStore="1">
             <label>Enable logging</label>
             <comment>Log events to `/var/log`</comment>

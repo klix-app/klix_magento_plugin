@@ -9,7 +9,7 @@
                 <payment_method_title>Citadele E-commerce Gateway</payment_method_title>
                 <active>1</active>
                 <payment_method_selection_enabled>1</payment_method_selection_enabled>
-
+                <due_minutes>0</due_minutes>
                 <order_status>payment_review</order_status>
                 <transaction_type>payment</transaction_type>
                 <payment_action>order</payment_action>
